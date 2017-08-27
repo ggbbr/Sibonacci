@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 100000
+int cle[MAX];
+int main()
+{
+    int a;
+    for(a=0;a<314;a++)
+    {
+        cle[a]=1;   //对数组赋初值
+    }
+    for(a=314;a<MAX;a++)
+    {
+        cle[a]=cle[a-100]+cle[a-314];   //反推Sibonacci的过程
+        cle[a]%=1000000007;
+    }
+    printf("%d       %d\n",cle[0],cle[1315]);
+    int T,b;
+    scanf("%d",&T);
+    b=T;
+    int fi[T];
+    while(T)
+    {
+        double x;
+        scanf("%lf",&x);
+        if(x<0)
+            fi[T]=0;
+        else
+        {
+            int pla;
+            x=x*100;
+            pla=(int)(x+0.000001);
+            fi[T]=cle[pla];
+        }
+        T--;
+    }
+    while(b)
+    {
+        printf("%d\n",fi[b]);
+        b--;
+    }
+    return 0;
+}
