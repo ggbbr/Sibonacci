@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double sibonacci(double b);
+int main()
+{
+	double x;
+	scanf("%lf",&x);
+	x=sibonacci(x);
+	printf("%lf",x);
+	return 0;
+}
+double sibonacci(double b)
+{
+    printf("%lf\n",b);
+	if(b<0)
+	return 0;
+	else if(b>=0&&b<1.0)
+	return 1;
+	else
+	{
+	double g,h;
+	g=b-1.0;
+	h=b-3.14;
+	b=sibonacci(g)+sibonacci(h);
+	return b;
+}
+}
